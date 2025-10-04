@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Analytics Dashboard - Clarity Co.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Customer Navigation -->
+    <nav class="customer-nav">
+        <div class="customer-nav-container">
+            <div class="customer-logo">
+                <div class="logo-c">
+                    <div class="logo-segments">
+                        <div class="segment segment-1"></div>
+                        <div class="segment segment-2"></div>
+                        <div class="segment segment-3"></div>
+                        <div class="segment segment-4"></div>
+                        <div class="segment segment-5"></div>
+                        <div class="segment segment-6"></div>
+                    </div>
+                </div>
+                <span class="logo-text">Clarity Co.</span>
+            </div>
+            <div class="customer-nav-menu">
+                <a href="#overview" class="nav-item active" data-section="overview">
+                    <i class="fas fa-tachometer-alt"></i> Overview
+                </a>
+                <a href="#reports" class="nav-item" data-section="reports">
+                    <i class="fas fa-chart-line"></i> Reports
+                </a>
+                <a href="#data" class="nav-item" data-section="data">
+                    <i class="fas fa-database"></i> Data
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </div>
+            <div class="customer-user">
+                <span id="customerUserName">Welcome, Customer</span>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Customer Dashboard Content -->
+    <div class="customer-content">
+        <!-- Overview Section -->
+        <section id="overview-section" class="customer-section active">
+            <div class="dashboard-header">
+                <h1>Your Business Analytics Dashboard</h1>
+                <div class="dashboard-controls">
+                    <select class="time-filter">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 3 months</option>
+                        <option>Last year</option>
+                    </select>
+                    <button class="btn btn-outline">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="metrics-overview" id="metricsOverview">
+                <div class="metric-card" data-metric="revenue">
+                    <div class="metric-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3 id="revenueValue">$45,230</h3>
+                        <p>Total Revenue</p>
+                        <span class="metric-change positive" id="revenueChange">+12.5%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card" data-metric="users">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3 id="usersValue">1,247</h3>
+                        <p>Active Users</p>
+                        <span class="metric-change positive" id="usersChange">+8.2%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card" data-metric="orders">
+                    <div class="metric-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3 id="ordersValue">342</h3>
+                        <p>Orders</p>
+                        <span class="metric-change negative" id="ordersChange">-2.1%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card" data-metric="conversion">
+                    <div class="metric-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3 id="conversionValue">87.3%</h3>
+                        <p>Conversion Rate</p>
+                        <span class="metric-change positive" id="conversionChange">+3.7%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-container-large">
+                    <div class="chart-header">
+                        <h3 id="mainChartTitle">Revenue Trend</h3>
+                        <div class="chart-controls">
+                            <select id="chartType" class="chart-select">
+                                <option value="revenue">Revenue Trend</option>
+                                <option value="orders">Order Volume</option>
+                                <option value="users">User Growth</option>
+                                <option value="conversion">Conversion Rate</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="line-chart-large">
+                        <svg class="dynamic-chart-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="dynamicLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#0077be;stop-opacity:0.8" />
+                                    <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0.8" />
+                                </linearGradient>
+                                <linearGradient id="dynamicAreaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0077be;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0.1" />
+                                </linearGradient>
+                            </defs>
+                            <path class="dynamic-area-path" fill="url(#dynamicAreaGradient)"/>
+                            <path class="dynamic-line-path" stroke="url(#dynamicLineGradient)" stroke-width="3" fill="none"/>
+                            <g class="dynamic-data-points"></g>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="chart-container-medium">
+                    <div class="chart-header">
+                        <h3 id="pieChartTitle">Traffic Sources</h3>
+                        <div class="chart-controls">
+                            <select id="pieChartType" class="chart-select">
+                                <option value="traffic">Traffic Sources</option>
+                                <option value="revenue">Revenue Sources</option>
+                                <option value="customers">Customer Segments</option>
+                                <option value="products">Product Performance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pie-chart-large">
+                        <div class="pie-visual" id="dynamicPieChart">
+                            <svg class="pie-svg" viewBox="0 0 120 120">
+                                <circle class="pie-background" cx="60" cy="60" r="50" fill="#e2e8f0"/>
+                                <g class="pie-segments"></g>
+                            </svg>
+                        </div>
+                        <div class="pie-legend-large" id="dynamicPieLegend">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <h3>Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Revenue increased by 12.5%</h4>
+                            <p>Compared to last month</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>New user registration spike</h4>
+                            <p>47 new users in the last 24 hours</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Conversion rate dropped</h4>
+                            <p>Down 2.1% from yesterday</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports-section" class="customer-section">
+            <div class="section-header">
+                <h2>Reports & Analytics</h2>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Generate Report
+                </button>
+            </div>
+            
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Monthly Performance Report</h3>
+                    <p>Comprehensive analysis of your business performance for the current month.</p>
+                    <div class="report-meta">
+                        <span class="report-date">Generated: Dec 15, 2024</span>
+                        <span class="report-size">2.3 MB</span>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn btn-outline">View</button>
+                        <button class="btn btn-primary">Download</button>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3>Customer Behavior Analysis</h3>
+                    <p>Detailed insights into customer engagement and behavior patterns.</p>
+                    <div class="report-meta">
+                        <span class="report-date">Generated: Dec 10, 2024</span>
+                        <span class="report-size">1.8 MB</span>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn btn-outline">View</button>
+                        <button class="btn btn-primary">Download</button>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3>Revenue Optimization Report</h3>
+                    <p>Recommendations for improving revenue and conversion rates.</p>
+                    <div class="report-meta">
+                        <span class="report-date">Generated: Dec 5, 2024</span>
+                        <span class="report-size">3.1 MB</span>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn btn-outline">View</button>
+                        <button class="btn btn-primary">Download</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Section -->
+        <section id="data-section" class="customer-section">
+            <div class="section-header">
+                <h2>Your Data</h2>
+                <button class="btn btn-primary">
+                    <i class="fas fa-upload"></i> Upload Data
+                </button>
+            </div>
+            
+            <div class="data-overview">
+                <div class="data-card">
+                    <h3>Sales Data</h3>
+                    <div class="data-stats">
+                        <span class="data-count">2,847 records</span>
+                        <span class="data-size">45.2 MB</span>
+                    </div>
+                    <div class="data-actions">
+                        <button class="btn btn-outline">Export</button>
+                        <button class="btn btn-outline">View</button>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <h3>Customer Data</h3>
+                    <div class="data-stats">
+                        <span class="data-count">1,247 records</span>
+                        <span class="data-size">12.8 MB</span>
+                    </div>
+                    <div class="data-actions">
+                        <button class="btn btn-outline">Export</button>
+                        <button class="btn btn-outline">View</button>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <h3>Website Analytics</h3>
+                    <div class="data-stats">
+                        <span class="data-count">15,392 records</span>
+                        <span class="data-size">89.1 MB</span>
+                    </div>
+                    <div class="data-actions">
+                        <button class="btn btn-outline">Export</button>
+                        <button class="btn btn-outline">View</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings-section" class="customer-section">
+            <div class="section-header">
+                <h2>Dashboard Settings</h2>
+            </div>
+            
+            <div class="settings-form">
+                <div class="setting-group">
+                    <h3>Display Preferences</h3>
+                    <div class="setting-item">
+                        <label>Dashboard Theme</label>
+                        <select>
+                            <option>Light</option>
+                            <option>Dark</option>
+                            <option>Auto</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Default Time Range</label>
+                        <select>
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 3 months</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h3>Notifications</h3>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" checked> Email notifications for new reports
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" checked> Alerts for significant changes
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="google-drive-integration.js"></script>
+    <script src="customer-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity Co. - Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="admin-nav">
+        <div class="admin-nav-container">
+            <div class="admin-logo">
+                <div class="logo-c">
+                    <div class="logo-segments">
+                        <div class="segment segment-1"></div>
+                        <div class="segment segment-2"></div>
+                        <div class="segment segment-3"></div>
+                        <div class="segment segment-4"></div>
+                        <div class="segment segment-5"></div>
+                        <div class="segment segment-6"></div>
+                    </div>
+                </div>
+                <span class="logo-text">Clarity Co. Admin</span>
+            </div>
+            <div class="admin-nav-menu">
+                <a href="#customers" class="nav-item active" data-section="customers">
+                    <i class="fas fa-users"></i> Customers
+                </a>
+                <a href="#dashboards" class="nav-item" data-section="dashboards">
+                    <i class="fas fa-chart-bar"></i> Dashboards
+                </a>
+                <a href="#data" class="nav-item" data-section="data">
+                    <i class="fas fa-database"></i> Data Storage
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </div>
+            <div class="admin-user">
+                <span id="adminUserName">Admin</span>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <div class="admin-content">
+        <!-- Customers Section -->
+        <section id="customers-section" class="admin-section active">
+            <div class="section-header">
+                <h2>Customer Management</h2>
+                <button class="btn btn-primary" onclick="showAddCustomerModal()">
+                    <i class="fas fa-plus"></i> Add New Customer
+                </button>
+            </div>
+            
+            <div class="customers-grid">
+                <div class="customer-card">
+                    <div class="customer-header">
+                        <h3>Acme Corporation</h3>
+                        <span class="customer-status active">Active</span>
+                    </div>
+                    <div class="customer-info">
+                        <p><strong>Contact:</strong> John Smith</p>
+                        <p><strong>Email:</strong> john@acme.com</p>
+                        <p><strong>Plan:</strong> Professional</p>
+                        <p><strong>Last Login:</strong> 2 days ago</p>
+                    </div>
+                    <div class="customer-actions">
+                        <button class="btn btn-outline" onclick="editCustomer(1)">Edit</button>
+                        <button class="btn btn-primary" onclick="viewDashboard(1)">View Dashboard</button>
+                    </div>
+                </div>
+
+                <div class="customer-card">
+                    <div class="customer-header">
+                        <h3>TechStart Inc</h3>
+                        <span class="customer-status active">Active</span>
+                    </div>
+                    <div class="customer-info">
+                        <p><strong>Contact:</strong> Sarah Johnson</p>
+                        <p><strong>Email:</strong> sarah@techstart.com</p>
+                        <p><strong>Plan:</strong> Enterprise</p>
+                        <p><strong>Last Login:</strong> 1 week ago</p>
+                    </div>
+                    <div class="customer-actions">
+                        <button class="btn btn-outline" onclick="editCustomer(2)">Edit</button>
+                        <button class="btn btn-primary" onclick="viewDashboard(2)">View Dashboard</button>
+                    </div>
+                </div>
+
+                <div class="customer-card">
+                    <div class="customer-header">
+                        <h3>Local Business Co</h3>
+                        <span class="customer-status inactive">Inactive</span>
+                    </div>
+                    <div class="customer-info">
+                        <p><strong>Contact:</strong> Mike Davis</p>
+                        <p><strong>Email:</strong> mike@localbiz.com</p>
+                        <p><strong>Plan:</strong> Starter</p>
+                        <p><strong>Last Login:</strong> 3 weeks ago</p>
+                    </div>
+                    <div class="customer-actions">
+                        <button class="btn btn-outline" onclick="editCustomer(3)">Edit</button>
+                        <button class="btn btn-primary" onclick="viewDashboard(3)">View Dashboard</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboards Section -->
+        <section id="dashboards-section" class="admin-section">
+            <div class="section-header">
+                <h2>Dashboard Management</h2>
+                <button class="btn btn-primary" onclick="createNewDashboard()">
+                    <i class="fas fa-plus"></i> Create Dashboard
+                </button>
+            </div>
+            
+            <div class="dashboard-templates">
+                <div class="template-card">
+                    <h3>Sales Analytics</h3>
+                    <p>Revenue tracking, conversion rates, and sales performance metrics</p>
+                    <div class="template-preview">
+                        <div class="preview-chart sales-chart"></div>
+                    </div>
+                    <button class="btn btn-outline">Use Template</button>
+                </div>
+
+                <div class="template-card">
+                    <h3>Customer Insights</h3>
+                    <p>Customer behavior, satisfaction scores, and engagement metrics</p>
+                    <div class="template-preview">
+                        <div class="preview-chart customer-chart"></div>
+                    </div>
+                    <button class="btn btn-outline">Use Template</button>
+                </div>
+
+                <div class="template-card">
+                    <h3>Operations Dashboard</h3>
+                    <p>Operational efficiency, resource utilization, and performance KPIs</p>
+                    <div class="template-preview">
+                        <div class="preview-chart operations-chart"></div>
+                    </div>
+                    <button class="btn btn-outline">Use Template</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Storage Section -->
+        <section id="data-section" class="admin-section">
+            <div class="section-header">
+                <h2>Dashboard Data Management</h2>
+                <button class="btn btn-primary" onclick="showUploadDataModal()">
+                    <i class="fas fa-upload"></i> Upload Data
+                </button>
+            </div>
+            
+            <!-- Data Categories -->
+            <div class="data-categories">
+                <div class="category-tabs">
+                    <button class="tab-btn active" onclick="showDataCategory('sales')">Sales Data</button>
+                    <button class="tab-btn" onclick="showDataCategory('analytics')">Analytics</button>
+                    <button class="tab-btn" onclick="showDataCategory('reports')">Reports</button>
+                    <button class="tab-btn" onclick="showDataCategory('custom')">Custom Data</button>
+                </div>
+                
+                <!-- Sales Data Tab -->
+                <div id="sales-data" class="data-category active">
+                    <div class="data-header">
+                        <h3>Sales Data</h3>
+                        <div class="data-actions">
+                            <button class="btn btn-outline" onclick="assignDataToCustomers('sales')">Assign to Customers</button>
+                            <button class="btn btn-outline" onclick="exportData('sales')">Export</button>
+                        </div>
+                    </div>
+                    <div class="data-list">
+                        <div class="data-item">
+                            <div class="data-info">
+                                <h4>Q4 2024 Sales Report</h4>
+                                <p>Revenue, orders, and customer acquisition data</p>
+                                <span class="data-meta">2,847 records • 45.2 MB • Updated 2 days ago</span>
+                            </div>
+                            <div class="data-assignments">
+                                <span class="assignment-count">Assigned to 3 customers</span>
+                                <button class="btn btn-sm" onclick="manageAssignments('sales', 1)">Manage</button>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-info">
+                                <h4>Monthly Revenue Trends</h4>
+                                <p>12-month revenue analysis and forecasting</p>
+                                <span class="data-meta">1,200 records • 12.8 MB • Updated 1 week ago</span>
+                            </div>
+                            <div class="data-assignments">
+                                <span class="assignment-count">Assigned to 2 customers</span>
+                                <button class="btn btn-sm" onclick="manageAssignments('sales', 2)">Manage</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analytics Data Tab -->
+                <div id="analytics-data" class="data-category">
+                    <div class="data-header">
+                        <h3>Analytics Data</h3>
+                        <div class="data-actions">
+                            <button class="btn btn-outline" onclick="assignDataToCustomers('analytics')">Assign to Customers</button>
+                            <button class="btn btn-outline" onclick="exportData('analytics')">Export</button>
+                        </div>
+                    </div>
+                    <div class="data-list">
+                        <div class="data-item">
+                            <div class="data-info">
+                                <h4>Website Traffic Analysis</h4>
+                                <p>Page views, bounce rates, and user behavior</p>
+                                <span class="data-meta">15,392 records • 128.7 MB • Updated 1 day ago</span>
+                            </div>
+                            <div class="data-assignments">
+                                <span class="assignment-count">Assigned to 4 customers</span>
+                                <button class="btn btn-sm" onclick="manageAssignments('analytics', 1)">Manage</button>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-info">
+                                <h4>Customer Behavior Insights</h4>
+                                <p>User engagement and conversion metrics</p>
+                                <span class="data-meta">8,500 records • 67.3 MB • Updated 3 days ago</span>
+                            </div>
+                            <div class="data-assignments">
+                                <span class="assignment-count">Assigned to 2 customers</span>
+                                <button class="btn btn-sm" onclick="manageAssignments('analytics', 2)">Manage</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reports Tab -->
+                <div id="reports-data" class="data-category">
+                    <div class="data-header">
+                        <h3>Generated Reports</h3>
+                        <div class="data-actions">
+                            <button class="btn btn-outline" onclick="assignDataToCustomers('reports')">Assign to Customers</button>
+                            <button class="btn btn-outline" onclick="exportData('reports')">Export</button>
+                        </div>
+                    </div>
+                    <div class="data-list">
+                        <div class="data-item">
+                            <div class="data-info">
+                                <h4>Monthly Performance Report</h4>
+                                <p>Comprehensive business performance analysis</p>
+                                <span class="data-meta">342 files • 89.1 MB • Updated 1 week ago</span>
+                            </div>
+                            <div class="data-assignments">
+                                <span class="assignment-count">Assigned to 5 customers</span>
+                                <button class="btn btn-sm" onclick="manageAssignments('reports', 1)">Manage</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Data Tab -->
+                <div id="custom-data" class="data-category">
+                    <div class="data-header">
+                        <h3>Custom Data Sets</h3>
+                        <div class="data-actions">
+                            <button class="btn btn-outline" onclick="assignDataToCustomers('custom')">Assign to Customers</button>
+                            <button class="btn btn-outline" onclick="exportData('custom')">Export</button>
+                        </div>
+                    </div>
+                    <div class="data-list">
+                        <div class="data-item">
+                            <div class="data-info">
+                                <h4>No custom data uploaded yet</h4>
+                                <p>Upload CSV, Excel, or JSON files to get started</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings-section" class="admin-section">
+            <div class="section-header">
+                <h2>System Settings</h2>
+            </div>
+            
+            <div class="settings-grid">
+                <div class="settings-card">
+                    <h3>Security Settings</h3>
+                    <div class="setting-item">
+                        <label>Session Timeout (minutes)</label>
+                        <input type="number" value="30" class="setting-input">
+                    </div>
+                    <div class="setting-item">
+                        <label>Password Requirements</label>
+                        <select class="setting-input">
+                            <option>Strong (8+ chars, special chars)</option>
+                            <option>Medium (6+ chars)</option>
+                            <option>Basic (4+ chars)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Dashboard Settings</h3>
+                    <div class="setting-item">
+                        <label>Default Dashboard Theme</label>
+                        <select class="setting-input">
+                            <option>Light</option>
+                            <option>Dark</option>
+                            <option>Auto</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Data Refresh Interval</label>
+                        <select class="setting-input">
+                            <option>Real-time</option>
+                            <option>5 minutes</option>
+                            <option>15 minutes</option>
+                            <option>1 hour</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div id="addCustomerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Customer</h3>
+                <span class="close-modal" onclick="closeAddCustomerModal()">&times;</span>
+            </div>
+            <form class="modal-form" id="addCustomerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Company Name</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerStatus">Status</label>
+                        <select id="customerStatus" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactName">Contact Name</label>
+                        <input type="text" id="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactTitle">Job Title</label>
+                        <input type="text" id="contactTitle">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPhone">Phone</label>
+                        <input type="tel" id="contactPhone">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerPlan">Plan</label>
+                        <select id="customerPlan" required>
+                            <option value="starter">Starter</option>
+                            <option value="professional">Professional</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerIndustry">Industry</label>
+                        <input type="text" id="customerIndustry">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerUsername">Username</label>
+                        <input type="text" id="customerUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPassword">Password</label>
+                        <input type="password" id="customerPassword" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerNotes">Notes</label>
+                    <textarea id="customerNotes" rows="3" placeholder="Additional notes about this customer..."></textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeAddCustomerModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Customer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Customer Modal -->
+    <div id="editCustomerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Customer</h3>
+                <span class="close-modal" onclick="closeEditCustomerModal()">&times;</span>
+            </div>
+            <form class="modal-form" id="editCustomerForm">
+                <input type="hidden" id="editCustomerId">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editCustomerName">Company Name</label>
+                        <input type="text" id="editCustomerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCustomerStatus">Status</label>
+                        <select id="editCustomerStatus" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editContactName">Contact Name</label>
+                        <input type="text" id="editContactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editContactTitle">Job Title</label>
+                        <input type="text" id="editContactTitle">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editContactEmail">Email</label>
+                        <input type="email" id="editContactEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editContactPhone">Phone</label>
+                        <input type="tel" id="editContactPhone">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editCustomerPlan">Plan</label>
+                        <select id="editCustomerPlan" required>
+                            <option value="starter">Starter</option>
+                            <option value="professional">Professional</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCustomerIndustry">Industry</label>
+                        <input type="text" id="editCustomerIndustry">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editCustomerUsername">Username</label>
+                        <input type="text" id="editCustomerUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCustomerPassword">Password</label>
+                        <input type="password" id="editCustomerPassword" placeholder="Leave blank to keep current password">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editCustomerNotes">Notes</label>
+                    <textarea id="editCustomerNotes" rows="3" placeholder="Additional notes about this customer..."></textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeEditCustomerModal()">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteCustomer()">Delete Customer</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Upload Data Modal -->
+    <div id="uploadDataModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Data for Customer Dashboards</h3>
+                <span class="close-modal" onclick="closeUploadDataModal()">&times;</span>
+            </div>
+            <form class="modal-form" id="uploadDataForm">
+                <div class="form-group">
+                    <label for="dataName">Data Set Name</label>
+                    <input type="text" id="dataName" required placeholder="e.g., Q4 2024 Sales Report">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dataCategory">Category</label>
+                        <select id="dataCategory" required>
+                            <option value="sales">Sales Data</option>
+                            <option value="analytics">Analytics</option>
+                            <option value="reports">Reports</option>
+                            <option value="custom">Custom Data</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataType">Data Type</label>
+                        <select id="dataType" required>
+                            <option value="csv">CSV File</option>
+                            <option value="excel">Excel File</option>
+                            <option value="json">JSON File</option>
+                            <option value="api">API Endpoint</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataDescription">Description</label>
+                    <textarea id="dataDescription" rows="3" placeholder="Describe what this data contains and how it should be used..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataFile">Upload File</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <input type="file" id="dataFile" accept=".csv,.xlsx,.xls,.json" style="display: none;">
+                        <div class="upload-placeholder">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload or drag and drop your file here</p>
+                            <span class="file-types">CSV, Excel, or JSON files</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Assign to Customers</label>
+                    <div class="customer-assignment">
+                        <div class="assignment-options">
+                            <label><input type="radio" name="assignment" value="all" checked> All Active Customers</label>
+                            <label><input type="radio" name="assignment" value="select"> Select Specific Customers</label>
+                        </div>
+                        <div class="customer-selection" id="customerSelection" style="display: none;">
+                            <div class="customer-checkboxes">
+                                <!-- Will be populated with customer list -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeUploadDataModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Upload & Assign Data</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Data Assignment Modal -->
+    <div id="dataAssignmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Manage Data Assignments</h3>
+                <span class="close-modal" onclick="closeDataAssignmentModal()">&times;</span>
+            </div>
+            <div class="modal-form">
+                <div class="assignment-info">
+                    <h4 id="assignmentDataName">Q4 2024 Sales Report</h4>
+                    <p id="assignmentDataDescription">Revenue, orders, and customer acquisition data</p>
+                </div>
+                
+                <div class="customer-assignment-list">
+                    <h5>Assigned Customers</h5>
+                    <div class="assigned-customers" id="assignedCustomers">
+                        <!-- Will be populated with assigned customers -->
+                    </div>
+                </div>
+                
+                <div class="add-assignment">
+                    <h5>Add More Customers</h5>
+                    <div class="customer-checkboxes" id="availableCustomers">
+                        <!-- Will be populated with available customers -->
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeDataAssignmentModal()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveDataAssignments()">Save Assignments</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="google-drive-integration.js"></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>

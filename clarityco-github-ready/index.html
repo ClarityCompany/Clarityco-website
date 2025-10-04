@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity Co. - Data Analytics for Growing Businesses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-c">
+                    <div class="logo-segments">
+                        <div class="segment segment-1"></div>
+                        <div class="segment segment-2"></div>
+                        <div class="segment segment-3"></div>
+                        <div class="segment segment-4"></div>
+                    </div>
+                </div>
+                <span class="logo-text">Clarity Co.</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="what-we-offer.html" class="nav-link">What We Offer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="insight-hub.html" class="nav-link">Insight Hub</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link cta-button">Get Started</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Data Analytics Made <span class="highlight">Simple</span> for Growing Businesses
+                </h1>
+                <p class="hero-description">
+                    Transform your business data into actionable insights without the cost of a full-time analyst. 
+                    We provide professional analytics services tailored for companies ready to make data-driven decisions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="what-we-offer.html" class="btn btn-primary">Explore Our Services</a>
+                    <a href="#contact" class="btn btn-secondary">Schedule Consultation</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="analytics-dashboard">
+                    <div class="dashboard-header">
+                        <h4>Business Performance Dashboard</h4>
+                        <span class="dashboard-period">Last 6 Months</span>
+                    </div>
+                    
+                    <div class="dashboard-grid">
+                        <!-- Revenue Trend Chart -->
+                        <div class="chart-widget revenue-chart">
+                            <div class="widget-header">
+                                <h5>Revenue Trend</h5>
+                                <span class="trend-indicator positive">↗ +23%</span>
+                            </div>
+                            <div class="line-chart">
+                                <svg class="line-chart-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#0077be;stop-opacity:0.8" />
+                                            <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0.8" />
+                                        </linearGradient>
+                                        <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#0077be;stop-opacity:0.3" />
+                                            <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0.1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Area under the line -->
+                                    <path class="area-path" d="M 40 160 L 100 130 L 160 110 L 220 80 L 280 50 L 340 20 L 360 20 L 360 200 L 40 200 Z" fill="url(#areaGradient)"/>
+                                    <!-- Main line -->
+                                    <path class="line-path" d="M 40 160 L 100 130 L 160 110 L 220 80 L 280 50 L 340 20" stroke="url(#lineGradient)" stroke-width="3" fill="none"/>
+                                    <!-- Data points -->
+                                    <circle cx="40" cy="160" r="4" fill="#0077be" class="data-point-svg"/>
+                                    <circle cx="100" cy="130" r="4" fill="#0077be" class="data-point-svg"/>
+                                    <circle cx="160" cy="110" r="4" fill="#0077be" class="data-point-svg"/>
+                                    <circle cx="220" cy="80" r="4" fill="#0077be" class="data-point-svg"/>
+                                    <circle cx="280" cy="50" r="4" fill="#0077be" class="data-point-svg"/>
+                                    <circle cx="340" cy="20" r="4" fill="#00d4aa" class="data-point-svg"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Customer Satisfaction Gauge -->
+                        <div class="chart-widget satisfaction-gauge">
+                            <div class="widget-header">
+                                <h5>Customer Satisfaction</h5>
+                            </div>
+                            <div class="gauge-container">
+                                <div class="gauge-circle">
+                                    <div class="gauge-fill" data-percentage="92"></div>
+                                    <div class="gauge-center">
+                                        <span class="gauge-value">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance Metrics -->
+                        <div class="chart-widget metrics-grid">
+                            <div class="widget-header">
+                                <h5>Key Metrics</h5>
+                            </div>
+                            <div class="metrics-container">
+                                <div class="metric-item">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-value">1,247</span>
+                                        <span class="metric-label">Active Users</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-value">$45.2K</span>
+                                        <span class="metric-label">Monthly Revenue</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-value">2.3s</span>
+                                        <span class="metric-label">Avg Response</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <div class="metric-content">
+                                        <span class="metric-value">87%</span>
+                                        <span class="metric-label">Goal Achievement</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sales Distribution Pie Chart -->
+                        <div class="chart-widget pie-chart">
+                            <div class="widget-header">
+                                <h5>Sales Distribution</h5>
+                            </div>
+                            <div class="pie-container">
+                                <div class="pie-chart-visual">
+                                    <div class="pie-segment segment-1" data-percentage="35"></div>
+                                    <div class="pie-segment segment-2" data-percentage="28"></div>
+                                    <div class="pie-segment segment-3" data-percentage="22"></div>
+                                    <div class="pie-segment segment-4" data-percentage="15"></div>
+                                </div>
+                                <div class="pie-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color color-1"></span>
+                                        <span class="legend-label">Product A (35%)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color color-2"></span>
+                                        <span class="legend-label">Product B (28%)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color color-3"></span>
+                                        <span class="legend-label">Product C (22%)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color color-4"></span>
+                                        <span class="legend-label">Others (15%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-prop">
+        <div class="container">
+            <h2 class="section-title">Why Choose Clarity Co.?</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Cost-Effective</h3>
+                    <p>Get professional analytics without the overhead of hiring a full-time analyst. Pay only for what you need.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Actionable Insights</h3>
+                    <p>We don't just provide data - we deliver clear, actionable insights that drive real business results.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Team</h3>
+                    <p>Work with experienced data professionals who understand both analytics and business strategy.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Quick Turnaround</h3>
+                    <p>Get insights when you need them. Our streamlined process delivers results faster than traditional consulting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>Comprehensive analysis of your business data to identify trends, patterns, and opportunities.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Custom Dashboards</h3>
+                    <p>Interactive dashboards that make your data accessible and actionable for your entire team.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Strategic Consulting</h3>
+                    <p>Expert guidance on how to implement data-driven strategies and build analytics capabilities.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="what-we-offer.html" class="btn btn-outline">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Data into Insights?</h2>
+                <p>Let's discuss how we can help your business make better decisions with data.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:dillon@clarityco.net" class="btn btn-primary">Get Started Today</a>
+                    <a href="#" class="btn btn-secondary" onclick="showPhonePopup()">Call Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <div class="logo-c">
+                            <div class="logo-segments">
+                                <div class="segment segment-1"></div>
+                                <div class="segment segment-2"></div>
+                                <div class="segment segment-3"></div>
+                                <div class="segment segment-4"></div>
+                            </div>
+                        </div>
+                        <span class="logo-text">Clarity Co.</span>
+                    </div>
+                    <p>Making data analytics accessible for growing businesses.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="what-we-offer.html">Data Analysis</a></li>
+                            <li><a href="what-we-offer.html">Custom Dashboards</a></li>
+                            <li><a href="what-we-offer.html">Strategic Consulting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="insight-hub.html">Insight Hub</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="mailto:dillon@clarityco.net">dillon@clarityco.net</a></li>
+                            <li><a href="#" onclick="showPhonePopup()">(407) 603-1037</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Admin</h4>
+                        <ul>
+                            <li><a href="admin-login.html" class="admin-link">Admin Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Clarity Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Phone Popup -->
+    <div id="phonePopup" class="phone-popup">
+        <div class="phone-popup-content">
+            <span class="close-popup" onclick="closePhonePopup()">&times;</span>
+            <h3>Contact Information</h3>
+            <div class="phone-info">
+                <p><strong>Phone:</strong> 1-407-603-1037</p>
+                <p><strong>Hours:</strong> 8:00 AM - 5:00 PM</p>
+                <p><strong>Days:</strong> Monday through Friday</p>
+            </div>
+            <a href="tel:+14076031037" class="btn btn-primary">Call Now</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

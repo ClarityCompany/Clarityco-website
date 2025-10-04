@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight Hub - Clarity Co.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-c">
+                    <div class="logo-segments">
+                        <div class="segment segment-1"></div>
+                        <div class="segment segment-2"></div>
+                        <div class="segment segment-3"></div>
+                        <div class="segment segment-4"></div>
+                    </div>
+                </div>
+                <span class="logo-text">Clarity Co.</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="what-we-offer.html" class="nav-link">What We Offer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="insight-hub.html" class="nav-link active">Insight Hub</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link cta-button">Get Started</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Insight Hub</h1>
+            <p>Resources, insights, and tips to help you make better data-driven decisions</p>
+        </div>
+    </section>
+
+    <!-- Client Login Section -->
+    <section class="login-section">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-box">
+                    <div class="login-header">
+                        <h3>Client Portal Access</h3>
+                        <p>Access your personalized analytics dashboard</p>
+                    </div>
+                    <form class="login-form" id="clientLoginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary login-btn">Access Dashboard</button>
+                        <div class="login-error" id="loginError" style="display: none;">
+                            Invalid credentials. Please try again.
+                        </div>
+                    </form>
+                </div>
+                <div class="login-info">
+                    <h4>What's in Your Dashboard?</h4>
+                    <ul>
+                        <li>Real-time analytics and insights</li>
+                        <li>Custom reports and visualizations</li>
+                        <li>Performance metrics and KPIs</li>
+                        <li>Data export capabilities</li>
+                    </ul>
+                    <p class="login-help">Need access? Contact your account manager or email <a href="mailto:dillon@clarityco.net">dillon@clarityco.net</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-article">
+        <div class="container">
+            <div class="featured-content">
+                <div class="featured-text">
+                    <span class="article-category">Featured</span>
+                    <h2>5 Key Metrics Every Growing Business Should Track</h2>
+                    <p>Discover the essential metrics that can help you understand your business performance and make informed decisions for growth.</p>
+                    <div class="article-meta">
+                        <span class="author">By Sarah Chen</span>
+                        <span class="date">December 15, 2024</span>
+                    </div>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+                <div class="featured-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Latest Insights</h2>
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="post-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-database"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Data Analysis</span>
+                        <h3>How to Clean Your Data for Better Analytics</h3>
+                        <p>Learn the essential steps to prepare your data for analysis and ensure accurate insights.</p>
+                        <div class="post-meta">
+                            <span class="author">By Michael Rodriguez</span>
+                            <span class="date">December 10, 2024</span>
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Dashboards</span>
+                        <h3>Building Effective Business Dashboards</h3>
+                        <p>Best practices for creating dashboards that your team will actually use and find valuable.</p>
+                        <div class="post-meta">
+                            <span class="author">By Emily Johnson</span>
+                            <span class="date">December 5, 2024</span>
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Strategy</span>
+                        <h3>Data-Driven Decision Making: A Beginner's Guide</h3>
+                        <p>Start making better business decisions with data. Here's how to get started on your analytics journey.</p>
+                        <div class="post-meta">
+                            <span class="author">By Sarah Chen</span>
+                            <span class="date">November 28, 2024</span>
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Tools</span>
+                        <h3>Choosing the Right Analytics Tools for Your Business</h3>
+                        <p>Compare popular analytics tools and find the best fit for your business needs and budget.</p>
+                        <div class="post-meta">
+                            <span class="author">By Michael Rodriguez</span>
+                            <span class="date">November 20, 2024</span>
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Case Study</span>
+                        <h3>How a Local Retailer Increased Sales by 40% with Data Analytics</h3>
+                        <p>A real-world example of how data insights transformed a small business's performance.</p>
+                        <div class="post-meta">
+                            <span class="author">By Emily Johnson</span>
+                            <span class="date">November 15, 2024</span>
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Analytics</span>
+                        <h3>Understanding Customer Lifetime Value</h3>
+                        <p>Learn how to calculate and use CLV to make better marketing and retention decisions.</p>
+                        <div class="post-meta">
+                            <span class="author">By Sarah Chen</span>
+                            <span class="date">November 8, 2024</span>
+                        </div>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Free Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Analytics Checklist</h3>
+                    <p>Download our free checklist to ensure you're tracking the right metrics for your business.</p>
+                    <a href="#" class="btn btn-outline">Download Free</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Webinar Series</h3>
+                    <p>Join our monthly webinars on data analytics best practices and industry trends.</p>
+                    <a href="#" class="btn btn-outline">Register Now</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Analytics Guide</h3>
+                    <p>Get our comprehensive guide to getting started with business analytics.</p>
+                    <a href="#" class="btn btn-outline">Get Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Get the latest insights, tips, and resources delivered to your inbox monthly.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Help with Your Data?</h2>
+                <p>Let our experts help you unlock the insights hidden in your business data.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:dillon@clarityco.net" class="btn btn-primary">Get Started Today</a>
+                    <a href="#" class="btn btn-secondary" onclick="showPhonePopup()">Call Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <div class="logo-c">
+                            <div class="logo-segments">
+                                <div class="segment segment-1"></div>
+                                <div class="segment segment-2"></div>
+                                <div class="segment segment-3"></div>
+                                <div class="segment segment-4"></div>
+                            </div>
+                        </div>
+                        <span class="logo-text">Clarity Co.</span>
+                    </div>
+                    <p>Making data analytics accessible for growing businesses.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="what-we-offer.html">Data Analysis</a></li>
+                            <li><a href="what-we-offer.html">Custom Dashboards</a></li>
+                            <li><a href="what-we-offer.html">Strategic Consulting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="insight-hub.html">Insight Hub</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="mailto:dillon@clarityco.net">dillon@clarityco.net</a></li>
+                            <li><a href="#" onclick="showPhonePopup()">(407) 603-1037</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Admin</h4>
+                        <ul>
+                            <li><a href="admin-login.html" class="admin-link">Admin Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Clarity Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Phone Popup -->
+    <div id="phonePopup" class="phone-popup">
+        <div class="phone-popup-content">
+            <span class="close-popup" onclick="closePhonePopup()">&times;</span>
+            <h3>Contact Information</h3>
+            <div class="phone-info">
+                <p><strong>Phone:</strong> 1-407-603-1037</p>
+                <p><strong>Hours:</strong> 8:00 AM - 5:00 PM</p>
+                <p><strong>Days:</strong> Monday through Friday</p>
+            </div>
+            <a href="tel:+14076031037" class="btn btn-primary">Call Now</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

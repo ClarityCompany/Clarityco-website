@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive API Test</title>
+</head>
+<body>
+    <h1>Google Drive API Test</h1>
+    <div id="status">Testing...</div>
+    <div id="results"></div>
+
+    <script>
+        async function testGoogleDrive() {
+            const statusDiv = document.getElementById('status');
+            const resultsDiv = document.getElementById('results');
+            
+            try {
+                statusDiv.textContent = 'Loading Google API...';
+                
+                // Load Google API
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://apis.google.com/js/api.js';
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+                
+                statusDiv.textContent = 'Initializing Google API...';
+                
+                // Initialize Google API
+                await window.gapi.load('client:auth2', async () => {
+                    try {
+                        await window.gapi.client.init({
+                            apiKey: 'AIzaSyDDIFaZjCCdRfk4GbzCRNWU7S91Mn7kj60',
+                            clientId: '1041903487209-1mpvagaa7d7jfgeqq9bg56gpqs478ee9.apps.googleusercontent.com',
+                            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+                            scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly'
+                        });
+                        
+                        statusDiv.textContent = 'Google API initialized successfully!';
+                        resultsDiv.innerHTML = '<p style="color: green;">✅ Google Drive API is working!</p>';
+                        
+                    } catch (error) {
+                        statusDiv.textContent = 'Error initializing Google API';
+                        resultsDiv.innerHTML = `<p style="color: red;">❌ Error: ${error.message}</p>`;
+                    }
+                });
+                
+            } catch (error) {
+                statusDiv.textContent = 'Failed to load Google API';
+                resultsDiv.innerHTML = `<p style="color: red;">❌ Failed to load Google API: ${error.message}</p>`;
+            }
+        }
+        
+        // Start test when page loads
+        window.addEventListener('load', testGoogleDrive);
+    </script>
+</body>
+</html>

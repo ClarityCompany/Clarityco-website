@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Admin Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 50px; }
+        .form-group { margin: 20px 0; }
+        input { padding: 10px; width: 200px; }
+        button { padding: 10px 20px; background: #0077be; color: white; border: none; cursor: pointer; }
+        .error { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Test Admin Login</h1>
+    
+    <form id="testForm">
+        <div class="form-group">
+            <label>Username:</label><br>
+            <input type="text" id="username" required>
+        </div>
+        <div class="form-group">
+            <label>Password:</label><br>
+            <input type="password" id="password" required>
+        </div>
+        <button type="submit">Login</button>
+        <div class="error" id="error" style="display: none;">Invalid credentials</div>
+    </form>
+
+    <script>
+        console.log('Test admin page loaded');
+        
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submitted');
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            console.log('Username:', username);
+            console.log('Password:', password);
+            
+            if (username === 'dcaldwell' && password === 'Jj3239828!') {
+                console.log('Login successful');
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('adminUser', username);
+                window.location.href = 'admin-panel.html';
+            } else {
+                console.log('Login failed');
+                document.getElementById('error').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

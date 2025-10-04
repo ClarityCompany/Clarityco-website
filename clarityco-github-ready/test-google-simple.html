@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Google API Test</title>
+</head>
+<body>
+    <h1>Simple Google API Test</h1>
+    <div id="status">Testing...</div>
+    <div id="results"></div>
+
+    <script>
+        async function testGoogleAPI() {
+            const statusDiv = document.getElementById('status');
+            const resultsDiv = document.getElementById('results');
+            
+            try {
+                statusDiv.textContent = 'Loading Google API...';
+                
+                // Load Google API script
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://apis.google.com/js/api.js';
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+                
+                statusDiv.textContent = 'Google API loaded successfully!';
+                resultsDiv.innerHTML = '<p style="color: green;">✅ Google API script loaded without errors!</p>';
+                
+                // Test gapi availability
+                if (window.gapi) {
+                    resultsDiv.innerHTML += '<p style="color: green;">✅ window.gapi is available!</p>';
+                } else {
+                    resultsDiv.innerHTML += '<p style="color: red;">❌ window.gapi is not available</p>';
+                }
+                
+            } catch (error) {
+                statusDiv.textContent = 'Failed to load Google API';
+                resultsDiv.innerHTML = `<p style="color: red;">❌ Error: ${error.message}</p>`;
+            }
+        }
+        
+        // Start test when page loads
+        window.addEventListener('load', testGoogleAPI);
+    </script>
+</body>
+</html>
